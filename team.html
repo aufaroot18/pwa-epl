@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/materialize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/icon-192.png" />
+    <link rel="apple-touch-icon" href="img/icon-192.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Premier League</title>
+  </head>
+  <body>
+    <div id="loader"></div>
+    <header>
+      <nav class="blue lighten-1">
+        <div class="nav-wrapper container">
+          <a href="index.html" class="brand-logo">Premier Leageu</a>
+          <a href="index.html" class="sidenav-trigger" data-target="nav-mobile">
+            <i class="material-icons">arrow_back</i>
+          </a>
+          <ul class="topnav right hide-on-med-and-down"></ul>
+        </div>
+        <ul class="sidenav" id="mobile"></ul>
+      </nav>
+    </header>
+    <main>
+      <section class="main">
+        <section class="container team">
+          <div class="row summary">
+            <div class="col m3 s12">
+              <div class="card">
+                <div class="card-image"></div>
+                <div class="card-content center"></div>
+              </div>
+            </div>
+            <div class="col m9 s12 active-competitions">
+              <h4>Active Competitions</h4>
+              <table class="striped responsive-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Code</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row players">
+            <h4>Players</h4>
+            <div class="col s12">
+              <table class="striped responsive-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Role</th>
+                    <th>Birth Date</th>
+                    <th>Nationality</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <div class="fixed-action-btn">
+          <a
+            class="btn-floating btn-large blue lighten-1"
+            id="save"
+            onclick="M.toast({html: 'Team berhasil disimpan'})"
+          >
+            <i class="large material-icons">save</i>
+          </a>
+          <a
+            class="btn-floating btn-large red lighten-1"
+            id="delete"
+            onclick="M.toast({html: 'Team berhasil dihapus'})"
+          >
+            <i class="large material-icons">delete</i>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer blue lighten-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6">
+            <h5>Aufa Billah</h5>
+          </div>
+          <div class="col l6">
+            <ul class="right-align">
+              <li>
+                <a
+                  class="white-text"
+                  href="https://www.linkedin.com/in/aufabillah/"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://github.com/aufaroot18"
+                  target="_blank"
+                  >Github</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://medium.com/@aufaroot18"
+                  target="_blank"
+                  >Medium</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text"
+                  href="https://www.instagram.com/aufaroot18/"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--JavaScript-->
+    <script src="js/main.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const isFromSaved = urlParams.get("saved");
+        const idParams = parseInt(urlParams.get("id"));
+        let data = {};
+        const saveBtn = document.querySelector("#save");
+        const deleteBtn = document.querySelector("#delete");
+
+        console.log(deleteBtn);
+
+        if (isFromSaved) {
+          saveBtn.style.display = "none";
+          getSavedTeam();
+        } else {
+          data = getTeam();
+          deleteBtn.style.display = "none";
+        }
+
+        saveBtn.addEventListener("click", () => {
+          data.then((team) => {
+            saveForLater(team);
+          });
+        });
+
+        deleteBtn.addEventListener("click", () => {
+          console.log(idParams);
+          deleteById(idParams);
+        });
+      });
+    </script>
+    <!-- Register Service Worker -->
+  </body>
+</html>
