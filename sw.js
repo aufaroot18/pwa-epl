@@ -8,75 +8,75 @@ const { StaleWhileRevalidate } = workbox.strategies;
 
 const urlsToCache = [
   {
-    url: "/index.html",
+    url: "/pwa-epl/index.html",
     version: "1",
   },
   {
-    url: "/nav.html",
+    url: "/pwa-epl/nav.html",
     version: "1",
   },
   {
-    url: "/team.html",
+    url: "/pwa-epl/team.html",
     version: "1",
   },
   {
-    url: "/pages/home.html",
+    url: "/pwa-epl/pages/home.html",
     version: "1",
   },
   {
-    url: "/pages/klasemen.html",
+    url: "/pwa-epl/pages/klasemen.html",
     version: "1",
   },
   {
-    url: "/pages/saved.html",
+    url: "/pwa-epl/pages/saved.html",
     version: "1",
   },
   {
-    url: "/pages/teams.html",
+    url: "/pwa-epl/pages/teams.html",
     version: "1",
   },
   {
-    url: "/css/materialize.css",
+    url: "/pwa-epl/css/materialize.css",
     version: "1",
   },
   {
-    url: "/css/style.css",
+    url: "/pwa-epl/css/style.css",
     version: "1",
   },
   {
-    url: "/js/api.js",
+    url: "/pwa-epl/js/api.js",
     version: "1",
   },
   {
-    url: "/js/db.js",
+    url: "/pwa-epl/js/db.js",
     version: "1",
   },
   {
-    url: "/js/idb.js",
+    url: "/pwa-epl/js/idb.js",
     version: "1",
   },
   {
-    url: "/js/main.js",
+    url: "/pwa-epl/js/main.js",
     version: "1",
   },
   {
-    url: "/js/materialize.js",
+    url: "/pwa-epl/js/materialize.js",
     version: "1",
   },
   {
-    url: "/js/nav.js",
+    url: "/pwa-epl/js/nav.js",
     version: "1",
   },
   {
-    url: "/manifest.json",
+    url: "/pwa-epl/manifest.json",
     version: "1",
   },
   {
-    url: "img/icon-192.png",
+    url: "/pwa-epl/img/icon-192.png",
     version: "1",
   },
   {
-    url: "img/icon-512.png",
+    url: "/pwa-epl/img/icon-512.png",
     version: "1",
   },
   {
