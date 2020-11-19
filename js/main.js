@@ -1,6 +1,6 @@
 const registerServiceWorker = () => {
   return navigator.serviceWorker
-    .register("sw.js")
+    .register("/pwa-epl/sw.js", {scope: "/pwa-epl/"})
     .then((registration) => {
       console.log("ServiceWorker Berhasil Didaftarkan");
       return registration;
