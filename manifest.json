@@ -2,7 +2,7 @@
 	"name": "Premier League",
 	"short_name": "EPL",
 	"description": "Premier League Scores",
-	"start_url": "/index.html",
+	"start_url": "/pwa-epl/index.html",
 	"display": "standalone",
 	"background_color": "#42a5f5",
 	"theme_color": "#42a5f5",
